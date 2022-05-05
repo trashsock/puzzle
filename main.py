@@ -3,9 +3,8 @@
 Created on Tue May  3 16:15:58 2022
 
 @author: Ritika
-"""
-
-from itertools import permutations, product, combinations
+""" 
+from itertools import permutations, product
 
 #nationality
 french = 0
@@ -56,7 +55,7 @@ right = 4
 posstr = ["left", "middle left", "middle", "middle right", "right"]
 
 deptime = list(permutations([0,1,2,3,4], 5))
-nation = list(permutations([0,1,2,3,4], 5))
+nationality = list(permutations([0,1,2,3,4], 5))
 destination = list(permutations([0,1,2,3,4], 5))
 cargo = list(permutations([0,1,2,3,4], 5))
 colour = list(permutations([0,1,2,3,4], 5))
@@ -70,7 +69,7 @@ def cond1(deptime, nationality, destination, cargo, colour):
 #2. The ship in the middle has a black chimney.    
 def cond2(deptime, nationality, destination, cargo, colour):
     pos = middle
-    return color[pos] == black
+    return colour[pos] == black
     
 #3. The English ship leaves at nine.
 def cond3(deptime, nationality, destination, cargo, colour):
@@ -80,7 +79,7 @@ def cond3(deptime, nationality, destination, cargo, colour):
 #4. The French ship with a blue chimney is to the left of a ship that carries coffee.    
 def cond4(deptime, nationality, destination, cargo, colour):
     pos = nationality.index(french)
-    return color[pos] == blue and pos - cargo.index(coffee) == -1
+    return colour[pos] == blue and pos - cargo.index(coffee) == -1
 
 #5. To the right of the ship carrying cocoa is a ship going to Marseille.
 def cond5(deptime, nationality, destination, cargo, colour):
@@ -95,7 +94,7 @@ def cond6(deptime, nationality, destination, cargo, colour):
 #7. Next to the ship carrying rice is a ship with a green chimney.
 def cond7(deptime, nationality, destination, cargo, colour):
     pos = cargo.index(rice)
-    return colour[pos + 1] == green
+    return colour[pos - 1] == green
 
 #8. A ship going to Genoa leaves at five.
 def cond8(deptime, nationality, destination, cargo, colour):
@@ -138,36 +137,14 @@ def cond15(deptime, nationality, destination, cargo, colour):
     return deptime[pos] == six
 
 #looping through all possible solutions
-sols = product(deptime, nation, destination, cargo, colour)
+sols = product(deptime, nationality, destination, cargo, colour)
 
 #prints solution
 def pretty(sol):
    for i in range(5):
-      print("The", colourstr[i], "ship is located at", posstr[i],", leaving at", deptimestr[i], "is carrying", cargostr[i] , "and is going to", deststr[i])
+      print("The", colourstr[i], "ship is located at", posstr[i],", leaving at", deptimestr[i], "is carrying", cargostr[i] , "and is going to", deststr[i], "from", nationstr[i])
 
 #checking condition and printing
 for sol in sols:
-    if cond1(sol[0], sol[1], sol[2], sol[3], sol[4])  and
-       cond2(sol[0], sol[1], sol[2], sol[3], sol[4]) and
-       cond3(sol[0], sol[1], sol[2], sol[3], sol[4]) and
-       cond4(sol[0], sol[1], sol[2], sol[3], sol[4]) and
-       cond5(sol[0], sol[1], sol[2], sol[3], sol[4]) and
-       cond6(sol[0], sol[1], sol[2], sol[3], sol[4]) and
-       cond7(sol[0], sol[1], sol[2], sol[3], sol[4]) and
-       cond8(sol[0], sol[1], sol[2], sol[3], sol[4]) and
-       cond9(sol[0], sol[1], sol[2], sol[3], sol[4]) and
-       cond10(sol[0], sol[1], sol[2], sol[3], sol[4]) and
-       cond11(sol[0], sol[1], sol[2], sol[3], sol[4]) and
-       cond12(sol[0], sol[1], sol[2], sol[3], sol[4]) and
-       cond13(sol[0], sol[1], sol[2], sol[3], sol[4]) and
-       cond14(sol[0], sol[1], sol[2], sol[3], sol[4]) and
-       cond15(sol[0], sol[1], sol[2], sol[3], sol[4]):
+    if cond1(sol[0], sol[1], sol[2], sol[3], sol[4]) and cond2(sol[0], sol[1], sol[2], sol[3], sol[4]) and cond3(sol[0], sol[1], sol[2], sol[3], sol[4]) and cond4(sol[0], sol[1], sol[2], sol[3], sol[4]) and cond5(sol[0], sol[1], sol[2], sol[3], sol[4]) and cond6(sol[0], sol[1], sol[2], sol[3], sol[4]) and cond7(sol[0], sol[1], sol[2], sol[3], sol[4]) and cond8(sol[0], sol[1], sol[2], sol[3], sol[4]) and cond9(sol[0], sol[1], sol[2], sol[3], sol[4]) and cond10(sol[0], sol[1], sol[2], sol[3], sol[4]) and cond11(sol[0], sol[1], sol[2], sol[3], sol[4]) and cond12(sol[0], sol[1], sol[2], sol[3], sol[4]) and cond13(sol[0], sol[1], sol[2], sol[3], sol[4]) and cond14(sol[0], sol[1], sol[2], sol[3], sol[4]) and cond15(sol[0], sol[1], sol[2], sol[3], sol[4]):
            pretty(sol)
-       
-
-
-
-
-
- 
-
