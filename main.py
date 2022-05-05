@@ -55,11 +55,11 @@ middleright = 3
 right = 4
 posstr = ["left", "middle left", "middle", "middle right", "right"]
 
-deptime = list(permutations([0,1,2,3,4], 5)
-nation = list(permutations([0,1,2,3,4], 5)
-destination = list(permutations([0,1,2,3,4], 5)
-cargo = list(permutations([0,1,2,3,4], 5)
-colour = list(permutations([0,1,2,3,4], 5)
+deptime = list(permutations([0,1,2,3,4], 5))
+nation = list(permutations([0,1,2,3,4], 5))
+destination = list(permutations([0,1,2,3,4], 5))
+cargo = list(permutations([0,1,2,3,4], 5))
+colour = list(permutations([0,1,2,3,4], 5))
  
 # all possible solutions
 #1. The Greek ship leaves at six and carries coffee.
