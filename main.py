@@ -94,7 +94,7 @@ def cond6(deptime, nationality, destination, cargo, colour):
 #7. Next to the ship carrying rice is a ship with a green chimney.
 def cond7(deptime, nationality, destination, cargo, colour):
     pos = cargo.index(rice)
-    return colour[pos - 1] == green
+    return colour[pos + 1] == green 
 
 #8. A ship going to Genoa leaves at five.
 def cond8(deptime, nationality, destination, cargo, colour):
